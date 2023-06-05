@@ -40,7 +40,7 @@ let
       backgroundColor = f cfg.backgroundColor;
       entryOptions = f cfg.entryOptions;
       subEntryOptions = f cfg.subEntryOptions;
-      grub = f grub;
+      grub = f (if (grub.grubTarget or "") != "" then grub else "");
       grubTarget = f (grub.grubTarget or "");
       shell = "${pkgs.runtimeShell}";
       fullName = lib.getName realGrub;
